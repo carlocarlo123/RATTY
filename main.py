@@ -29,9 +29,8 @@ username=os.environ["USER"]
 print(username)
 header=f"[~] {username}@ratty $ "
 remote_path="raw.githubusercontent.com/carlocarlo123/RATTY/main"
-local_path=f"/home/{username}/Desktop"
 # create a hidden folder for our malwaRE PANEL
-local_path="/home/kali/Desktop/Malware development/OnlyRat"
+local_path="/home/kali/Desktop/Malware_development/OnlyRat"
 help_menu="""
                 Arguments:
                     xxx.rat =configuration file to add to onlyrat
@@ -233,14 +232,16 @@ def update():
     print("\n[*] Checking for updates......")
     # get the latest version 
     # tee used to coopy from url to the latest.txt file in the hidden directory
-    os.system(f"curl https://raw.githubusercontent.com/carlocarlo123/RATTY/main/version.txt |tee /home/kali/Desktop/Malware\ development/OnlyRat/latest.txt")
+    os.system(f"curl https://raw.githubusercontent.com/carlocarlo123/RATTY/main/version.txt |tee /home/kali/Desktop/Malware_development/OnlyRat/latest.txt")
 
 
     # save the version numbers to memroy
     current_version=float(open(f"{local_path}/version.txt","r").read())
+    print(current_version)
     latest_version=float(open(f"{local_path}/latest.txt","r").read())
+    print(latest_version)
 
-    os.system(f"rm -rf /home/kali/Desktop/Malware development/OnlyRat/latest.txt")
+    os.system(f"rm -rf /home/kali/Desktop/Malware_development/OnlyRat/latest.txt")
 
 
     # if new vesion is avaliable update
@@ -251,7 +252,7 @@ def update():
         option=input(f"{header}")
         # update
         if option=="y":
-            os.system(f"sh /home/kali/Desktop/Malware\ development/OnlyRat/payloads/update.sh")
+            os.system(f"sh /home/kali/Desktop/Malware_development/OnlyRat/payloads/update.sh")
 
 
         else:
