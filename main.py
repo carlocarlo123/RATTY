@@ -233,7 +233,7 @@ def update():
     print("\n[*] Checking for updates......")
     # get the latest version 
     # tee used to coopy from url to the latest.txt file in the hidden directory
-    os.system(f"curl https://raw.githubusercontent.com/carlocarlo123/RATTY/main/version.txt |tee /home/kali/Desktop/Malware development/OnlyRat/latest.txt")
+    os.system(f"curl https://raw.githubusercontent.com/carlocarlo123/RATTY/main/version.txt |tee /home/kali/Desktop/Malware\ development/OnlyRat/latest.txt")
 
 
     # save the version numbers to memroy
