@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Winlogon\SpecialAccounts\UserList]
+"onlyrat"=dword:00000000 ;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001;
+[HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=-
