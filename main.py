@@ -257,6 +257,8 @@ def update():
 
         else:
             main()
+    else:
+        print("ali abbass")
 
 
 # get the argument
