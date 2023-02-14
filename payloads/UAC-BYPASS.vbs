@@ -1,4 +1,4 @@
-Set objShell = WScript.CreateObject("WScript.Shell")
-objShell.SendKeys "{LEFT}"
-objShell.sleep(100)
-objShell.SendKeys "{ENTER}"
+Set obj= CreateObject("WScript.Shell")
+obj.SendKeys "{LEFT}"
+wScript.Sleep(100)
+obj.SendKeys "{ENTER}"
