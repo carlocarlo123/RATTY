@@ -40,7 +40,7 @@ workflow gXJqIeQLEx{
 	# 	}
 	# }
 
-	Set-ItemProperty -Path REGISTRY::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name ConsentPromptBehaviorAdmin -Value 0
+	Set-ItemProperty -Path "REGISTRY::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value 0
 	Restart-Computer -Wait
 	"bGnQSfviwu.cmd"|cmd
 	Install-Module -Name PSWindowUpdate -Force
