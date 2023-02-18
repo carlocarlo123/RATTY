@@ -1,6 +1,6 @@
 workflow gXJqIeQLEx{
-	# [CmdletBinding()]
-	# param([string]$nGZbQUSuHF='cmd.exe')
+	[CmdletBinding()]
+	param([string]$nGZbQUSuHF='cmd.exe')
 
     # $jZdzyknCRV = [System.Environment]::OSVersion.Version.Major
 
